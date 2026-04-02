@@ -33,7 +33,7 @@ A full-stack web application that predicts stock prices for the next 7 days and 
    ```
 3. **Setup Frontend**:
    ```bash
-   cd frontend
+   cd stock-scout-dashboard
    npm install
    ```
 
@@ -47,6 +47,29 @@ uvicorn backend.main:app --reload --port 8000
 ```
 
 **Frontend**:
+```bash
+cd stock-scout-dashboard
+npm run dev
+```
+
+## 🚀 Deployment on Railway
+
+This app is configured for deployment on Railway.
+
+1. **Push to GitHub**:
+   - Create a new repository on GitHub.
+   - Add the remote: `git remote add origin https://github.com/yourusername/yourrepo.git`
+   - Push: `git push -u origin master`
+
+2. **Deploy on Railway**:
+   - Connect your GitHub repo to Railway.
+   - Railway will auto-detect the monorepo and create two services: backend (Python) and frontend (Node.js).
+   - For the frontend service, set environment variable `VITE_API_URL` to the backend's Railway URL (e.g., `https://your-backend-service.railway.app`).
+   - Deploy!
+
+## 📝 Notes
+- The app uses SQLite for simplicity; for production, consider PostgreSQL.
+- API keys should be set in environment variables for security.
 ```bash
 cd frontend
 npm run dev
