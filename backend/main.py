@@ -15,6 +15,7 @@ app = FastAPI(title="Stock Price Prediction & Recommendation API")
 origins = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "https://remarkable-creativity-production-2478.up.railway.app",
 ]
 
 app.add_middleware(
