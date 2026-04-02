@@ -26,11 +26,16 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # TEMP: Allow all origins for debugging
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Debug endpoint to verify deployment
+@app.get("/test-cors")
+def test_cors():
+    return {"status": "CORS updated and deployed"}
 
 def get_db():
     db = SessionLocal()
