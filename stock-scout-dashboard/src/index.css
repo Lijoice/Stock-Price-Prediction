@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Stock Market Prediction App - Dark Financial Theme */
+/* Design System: Deep navy with gold/yellow accents, green/red for stock changes */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
+
+@layer base {
+  :root {
+    /* Light financial theme - bright and professional */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 6%;
+
+    /* Gold/Yellow accent - primary brand */
+    --primary: 45 100% 51%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 210 40% 90%;
+    --secondary-foreground: 222 47% 6%;
+
+    --muted: 210 40% 90%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 200 100% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    /* Stock colors */
+    --stock-positive: 142 76% 36%;
+    --stock-negative: 0 84% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(35 100% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 4%) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(240, 244, 248, 0.85) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(45 100% 51% / 0.3);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    /* Dark financial theme - deep navy base */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 17%;
+
+    --gradient-hero: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 25, 47, 0.85) 100%);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Orbitron', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-financial {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stock-positive {
+    @apply text-[hsl(var(--stock-positive))];
+  }
+
+  .stock-negative {
+    @apply text-[hsl(var(--stock-negative))];
+  }
+
+  .stat-card {
+    @apply px-4 py-3 rounded-lg text-center;
+  }
+
+  .stat-card-blue {
+    @apply stat-card bg-blue-600 text-white;
+  }
+
+  .stat-card-green {
+    @apply stat-card bg-green-600 text-white;
+  }
+
+  .stat-card-red {
+    @apply stat-card bg-red-600 text-white;
+  }
+
+  .stat-card-yellow {
+    @apply stat-card bg-yellow-600 text-white;
+  }
+
+  .ticker-scroll {
+    animation: ticker 30s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .nav-link {
+    @apply text-foreground hover:text-primary transition-colors duration-200 font-medium;
+  }
+
+  .nav-link-active {
+    @apply text-primary;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
