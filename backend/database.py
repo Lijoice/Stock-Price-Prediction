@@ -18,7 +18,7 @@ try:
     # Priority 3: Default SQLite local path
     DATABASE_URL = os.getenv("DATABASE_URL")
     if not DATABASE_URL:
-        DATABASE_URL = f"sqlite:///{DB_PATH}"
+        DATABASE_URL = "sqlite:///./stock_app_v2.db"
     
     # Render and Railway often provide "postgres://" urls, but SQLAlchemy requires "postgresql://"
     if DATABASE_URL.startswith("postgres://"):
