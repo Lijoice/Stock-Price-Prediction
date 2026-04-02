@@ -12,6 +12,12 @@ from datetime import datetime, timedelta
 
 app = FastAPI(title="Stock Price Prediction & Recommendation API")
 
+@app.on_event("startup")
+async def startup_event():
+    from .database import engine
+    from . import models
+    models.Base.metadata.create_all(bind=engine)
+
 origins = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
