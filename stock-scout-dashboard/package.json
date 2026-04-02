@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview --host 0.0.0.0 --port $PORT",
+    "start": "serve dist -s -l $PORT",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -48,6 +48,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
+    "serve": "^14.2.1",
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lightweight-charts": "^5.1.0",
